@@ -1,0 +1,24 @@
+base: &base
+  adapter: postgresql
+  encoding: utf8
+  username: deepankanchitragupt
+  password:
+  host: 127.0.0.1
+  pool: 5
+
+development:
+  <<: *base
+  database: feed_products_development
+  #database: scobserver_development
+
+test:
+  <<: *base
+  database: feed_products_test
+
+staging:
+  <<: *base
+  database: feed_products_staging
+
+production:
+  <<: *base
+  database: feed_products_production
