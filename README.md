@@ -5,20 +5,17 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: ruby 2.5.0p0
 
-* System dependencies
+* Database creation: rake db:create 
 
-* Configuration
+* Database initialization: rake db:migration && rake db:seed
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Thing to be improved
+   1. Better UI
+   2. Role and authorization
+   3. Validation
+   4. Parse the file from url
+   5. Read email automatically and run job to parse file.
 
 * ...
