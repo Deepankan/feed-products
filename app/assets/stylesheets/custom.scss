@@ -1,0 +1,54 @@
+.text-align-center {
+  text-align: center
+}
+
+.spacer {
+    margin-top: 10px;
+}
+
+.field-error {
+    color: red;
+}
+
+.container {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 3px;
+  padding-right: 0;
+  width: auto;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav a.split {
+  float: right;
+  background-color: rgb(165, 42, 42);
+  color: white;
+}
+
+.margin-top {
+  margin-top: 80px;
+}

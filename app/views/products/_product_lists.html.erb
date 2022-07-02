@@ -1,0 +1,24 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Category</th>
+        <th scope="col">Name</th>
+        <th scope="col">Twitter</th>
+        <th scope="col">Provider</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% products.each do | product |%>
+        <tr>
+          <th scope="row"><%= product.category.name %></th>
+          <td><%= product.name %></td>
+          <td><%= product.twitter %></td>
+          <td><%= product.provider.present? ? product.provider.name : '-' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<div class="spacer">
+  <%= will_paginate @products %>
+</div>
+

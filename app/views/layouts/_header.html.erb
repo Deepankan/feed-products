@@ -1,0 +1,54 @@
+<div class="topnav">
+  <a class="<%= params[:controller] == 'products' ? 'active' : '' %>" href="<%= products_path %>">Home</a>
+  <a href="#" data-toggle="modal" data-target="#importModal" >Import</a>
+  <% if current_user.present? %>
+    <% if current_user.role == User::ADMIN %>
+     <%= link_to 'Providers', providers_path, class: params[:controller] == 'providers' ? 'active' : ''%>
+     <% if params[:controller] == 'providers' %>
+      <%= link_to 'Create Provider', new_provider_path %>
+     <% end %>
+    <% end %>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'split' %>
+  <%else%>
+    <%= link_to "Sign In/ Sign Up", new_user_session_path, class: 'split'%>
+  <%end%>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="importModalLabel">Import File </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_tag upload_file_path, multipart: true, remote: true do %>
+        <div class="modal-body">
+
+          <div class="form-group row">
+            <!-- <label class="col-lg-2 col-form-label font-weight-semibold">File to Upload</label> -->
+            <div class="col-lg-12">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <%= file_field_tag "file", class: 'file-input','data-show-preview'=> "false", 'data-show-upload': "false", 'data-show-caption': "true"%>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-lg-12">
+              <%= select_tag 'provider', options_from_collection_for_select(@providers, "id", "name"), class: 'form-control', include_blank: "Select Provider" %>
+              <!-- <input type="file" class="file-input" data-show-preview="false" data-fouc> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+          <%= submit_tag "Upload data", class: 'btn bg-primary'%>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

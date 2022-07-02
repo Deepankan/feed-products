@@ -1,0 +1,29 @@
+<div class="container">
+  <br >
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @providers.each do | provider |%>
+          <tr>
+            <th scope="row"><%= provider.name %></th>
+            <td>
+              <%= link_to edit_provider_path(provider), class: 'btn btn-default btn-sm btn btn-warning' do %>
+                  <span class="">Edit</span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-sm btn btn-danger'%>
+
+            </td>
+          </tr>
+
+        <% end %>
+      </tbody>
+  </table>
+</div>
+<%= will_paginate @providers %>

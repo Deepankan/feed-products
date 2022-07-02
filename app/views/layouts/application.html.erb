@@ -9,6 +9,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div>
+      <%= render partial: 'layouts/header'%>
+      <%= render partial: 'layouts/common_messages' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
+

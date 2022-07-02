@@ -1,0 +1,17 @@
+<% errors = @provider.errors %>
+<%= form_for(@provider, html: { class: 'form-horizontal', role: 'form' }) do |f| %>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="name">Name:</label>
+    <div class="col-sm-6">
+      <%= f.text_field :name, class: 'form-control', id: 'name', placeholder: 'Enter name' %>
+    <div class="field-error"><%= show_errors(errors,:name)%></div>
+    <%= f.hidden_field :user_id, autofocus: false, autocomplete: 'name', placeholder: 'user', value: current_user.id %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6" align="center">
+      <%= f.submit "Save", class: 'btn btn-primary' %>
+      <%= link_to 'Back', providers_path, class: 'btn btn-info' %>
+    </div>
+  </div>
+<% end %>
